@@ -1,0 +1,76 @@
+{
+  "name": "MedicalScan",
+  "description": "Medical scan data for AI analysis and diagnosis",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Anonymized patient identifier"
+    },
+    "scan_type": {
+      "type": "string",
+      "description": "Type of medical scan (X-ray, MRI, CT, etc.)"
+    },
+    "body_part": {
+      "type": "string",
+      "description": "Body part being scanned (chest, brain, heart, etc.)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of the uploaded scan image"
+    },
+    "ai_analysis": {
+      "type": "object",
+      "description": "AI analysis results",
+      "properties": {
+        "confidence": {
+          "type": "number"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "severity": {
+          "type": "string"
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Analysis status (pending, analyzing, completed, critical)"
+    },
+    "priority": {
+      "type": "string",
+      "description": "Triage priority (low, medium, high, critical)"
+    },
+    "annotations": {
+      "type": "array",
+      "description": "Radiologist annotations and comments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "radiologist": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scan_date": {
+      "type": "string",
+      "description": "Date when the scan was taken"
+    }
+  }
+}

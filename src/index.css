@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 8 12% 6%;
+    --foreground: 200 100% 95%;
+    
+    --card: 12 15% 8%;
+    --card-foreground: 200 100% 95%;
+    
+    --popover: 12 15% 8%;
+    --popover-foreground: 200 100% 95%;
+    
+    --primary: 195 100% 50%;
+    --primary-foreground: 8 12% 6%;
+    
+    --secondary: 12 15% 12%;
+    --secondary-foreground: 200 100% 95%;
+    
+    --muted: 12 15% 12%;
+    --muted-foreground: 200 20% 65%;
+    
+    --accent: 195 100% 50%;
+    --accent-foreground: 8 12% 6%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 200 100% 95%;
+    
+    --border: 12 15% 15%;
+    --input: 12 15% 15%;
+    --ring: 195 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    --sidebar-background: 8 12% 6%;
+    --sidebar-foreground: 200 100% 95%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 8 12% 6%;
+    --sidebar-accent: 12 15% 12%;
+    --sidebar-accent-foreground: 200 100% 95%;
+    --sidebar-border: 12 15% 15%;
+    --sidebar-ring: 195 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  }
+  
+  .medical-glow {
+    @apply shadow-[0_0_20px_rgba(0,255,255,0.3)] border-cyan-400/30;
+  }
+  
+  .holographic {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 255, 0.1) 0%, 
+      rgba(0, 150, 255, 0.1) 25%, 
+      rgba(100, 200, 255, 0.1) 50%, 
+      rgba(0, 255, 255, 0.1) 75%, 
+      rgba(0, 255, 255, 0.1) 100%);
+    @apply backdrop-blur-md border border-cyan-400/20;
+  }
+  
+  .text-gradient-medical {
+    @apply bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent;
+  }
+  
+  .pulse-medical {
+    animation: pulse-medical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+    animation: scan 2s linear infinite;
+  }
+}
+
+@keyframes pulse-medical {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 255, 0);
+  }
+}
+
+@keyframes scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate-3d {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.rotate-3d {
+  animation: rotate-3d 20s linear infinite;
+}
